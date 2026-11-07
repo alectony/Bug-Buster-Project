@@ -80,8 +80,8 @@ function http_call(string $method, string $url, ?array $body, array $headers): a
 
 /* ---------- Supabase REST ---------- */
 function sb_raw(string $method, string $path, ?array $body = null, array $prefer = []): array {
-    $base = rtrim(env_get('SUPABASE_URL'), '/');
-    $key = env_get('SUPABASE_SERVICE_KEY');
+    $base = rtrim(env_get('SUPABASE_URL') ?: env_get('NEXT_PUBLIC_SUPABASE_URL'), '/');
+    $key = env_get('SUPABASE_SERVICE_KEY') ?: env_get('SUPABASE_SECRET_KEY');
     if ($base === '' || $key === '') fail('Server is missing Supabase settings', 500);
     $h = ['apikey: ' . $key, 'Authorization: Bearer ' . $key];
     if ($method !== 'GET' && !$prefer) $prefer = ['return=representation'];
@@ -99,8 +99,8 @@ function sb(string $method, string $path, ?array $body = null, array $prefer = [
 }
 
 function sb_auth(string $path, ?array $body, string $method = 'POST'): array {
-    $base = rtrim(env_get('SUPABASE_URL'), '/');
-    $key = env_get('SUPABASE_SERVICE_KEY');
+    $base = rtrim(env_get('SUPABASE_URL') ?: env_get('NEXT_PUBLIC_SUPABASE_URL'), '/');
+    $key = env_get('SUPABASE_SERVICE_KEY') ?: env_get('SUPABASE_SECRET_KEY');
     if ($base === '' || $key === '') fail('Server is missing Supabase settings', 500);
     return http_call($method, $base . '/auth/v1' . $path, $body, ['apikey: ' . $key, 'Authorization: Bearer ' . $key]);
 }
