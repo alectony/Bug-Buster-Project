@@ -26,7 +26,9 @@
       const res = await PG.api('/api/' + mode + '.php', { body, noRedirect: true });
       location.href = res.role === 'admin' ? '/admin/dashboard.html' : '/adventure.html';
     } catch (err) {
-      errBox.textContent = err.message;
+      // CHANGE THIS LINE:
+      errBox.textContent = err.message + ' (Status: ' + err.status + ')'; // <-- Shows status and full message
+      
       btn.disabled = false;
       btn.textContent = label;
     }
