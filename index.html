@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python Garden: learn Python by growing a garden</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&amp;family=Pixelify+Sans:wght@500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/pixel.css">
+  <link rel="stylesheet" href="/css/landing.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container land-top">
+      <a class="px-nav__brand" href="/"><span class="spr spr--turtle" data-sprite="turtle"></span>Python Garden</a>
+      <nav class="row" aria-label="Account">
+        <a class="px-btn px-btn--ghost px-btn--small" href="/login.html">Log in</a>
+        <a class="px-btn px-btn--sun px-btn--small" href="/register.html">Sign up</a>
+      </nav>
+    </div>
+    <div class="cloud cloud--a" aria-hidden="true"></div>
+    <div class="cloud cloud--b" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <h1>Grow a garden by writing Python.</h1>
+        <p>Every level teaches one idea. Write a few lines, run them, and watch your garden bloom when the code is right.</p>
+        <div class="row">
+          <a class="px-btn px-btn--sun" href="/register.html">Start planting</a>
+          <a class="px-btn px-btn--ghost" href="/login.html">I have an account</a>
+        </div>
+      </div>
+      <div class="hero__scene" aria-hidden="true">
+        <span class="spr spr--lg" data-sprite="sunflower"></span>
+        <span class="spr spr--lg" data-sprite="tulip"></span>
+        <span class="spr spr--turtle spr--lg" data-sprite="turtle"></span>
+        <span class="spr spr--lg" data-sprite="mushroom"></span>
+      </div>
+    </div>
+    <div class="hero__ground"></div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <div class="grid-3">
+        <article class="px-card feature">
+          <h3><span class="spr spr--sm" data-sprite="leaf"></span>Write real Python</h3>
+          <p>Quests ask for small programs: print, variables, math, if and loops. Mistakes get a plain-language explanation and the exact line.</p>
+        </article>
+        <article class="px-card feature">
+          <h3><span class="spr spr--sm" data-sprite="seed"></span>Earn seeds</h3>
+          <p>Finishing a level pays out seeds and XP. Spend seeds on flowers, mushrooms and decorations for your 12-plot garden.</p>
+        </article>
+        <article class="px-card feature">
+          <h3><span class="spr spr--sm" data-sprite="can"></span>Fill your toolbox</h3>
+          <p>Every concept you unlock is saved with a short example, so you can look it up later without starting over.</p>
+        </article>
+      </div>
+    </section>
+    <section class="section container">
+      <h2>What a level feels like</h2>
+      <div class="code-demo" role="img" aria-label="Example: print(&quot;Hello, garden!&quot;) shows Hello, garden! in the console">
+        <div class="cm"># Level 1: say hello</div>
+        <div>print("Hello, garden!")</div>
+        <div class="out">Hello, garden!</div>
+      </div>
+      <p class="muted">The in-browser checker understands beginner Python. It is made for learning, not for running big programs.</p>
+    </section>
+    <section class="cta-band">
+      <div class="container row row--between">
+        <h2>Your first seed is waiting.</h2>
+        <a class="px-btn px-btn--sun" href="/register.html">Create a free account</a>
+      </div>
+    </section>
+  </main>
+  <footer class="container foot muted">Python Garden</footer>
+  <script src="/js/api.js"></script>
+</body>
+</html>

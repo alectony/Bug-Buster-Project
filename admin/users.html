@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Users | Python Garden admin</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&amp;family=Pixelify+Sans:wght@500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/pixel.css">
+  <link rel="stylesheet" href="/css/game.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body data-role="admin" data-page="users" class="page-admin">
+  <div id="app-nav"></div>
+  <main class="container page-main">
+    <div class="page-head"><h1>Users</h1></div>
+    <div class="px-field">
+      <label class="px-label" for="user-search">Find a username</label>
+      <input class="px-input" id="user-search" type="search" autocomplete="off">
+    </div>
+    <p id="user-count" class="muted" role="status"></p>
+    <div class="table-wrap">
+      <table class="px-table">
+        <caption class="sr-only">All users</caption>
+        <thead><tr><th scope="col">Username</th><th scope="col">Role</th><th scope="col">Progress</th><th scope="col">Status</th><th scope="col">Joined</th><th scope="col">Actions</th></tr></thead>
+        <tbody id="user-rows"></tbody>
+      </table>
+    </div>
+  </main>
+  <script src="/js/api.js"></script>
+  <script src="/js/guard.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

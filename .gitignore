@@ -1,1 +1,3 @@
-.env, .vercel, .DS_Store
+.env
+.vercel
+.DS_Store

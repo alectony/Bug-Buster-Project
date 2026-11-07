@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "name": "Sunflower seed",
+      "kind": "seed",
+      "cost_seeds": 20,
+      "sprite": "sunflower"
+    },
+    {
+      "name": "Tulip bulb",
+      "kind": "seed",
+      "cost_seeds": 30,
+      "sprite": "tulip"
+    },
+    {
+      "name": "Mushroom spore",
+      "kind": "seed",
+      "cost_seeds": 25,
+      "sprite": "mushroom"
+    },
+    {
+      "name": "Cactus sprout",
+      "kind": "seed",
+      "cost_seeds": 35,
+      "sprite": "cactus"
+    },
+    {
+      "name": "Watering can",
+      "kind": "tool",
+      "cost_seeds": 40,
+      "sprite": "can"
+    },
+    {
+      "name": "Picket fence",
+      "kind": "decor",
+      "cost_seeds": 50,
+      "sprite": "fence"
+    },
+    {
+      "name": "Garden lantern",
+      "kind": "decor",
+      "cost_seeds": 60,
+      "sprite": "lantern"
+    },
+    {
+      "name": "Lily pond",
+      "kind": "decor",
+      "cost_seeds": 80,
+      "sprite": "pond"
+    }
+  ]
+}

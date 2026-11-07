@@ -1,0 +1,114 @@
+{
+  "chapters": [
+    {
+      "slug": "first-sprouts",
+      "title": "First sprouts",
+      "sort_order": 1,
+      "is_published": true,
+      "blurb": "Print, variables, math, decisions and loops.",
+      "lessons": [
+        {
+          "title": "Say hello",
+          "concept": "Printing",
+          "sort_order": 1,
+          "goals": [
+            "Use print() to show a message",
+            "Make the console say exactly: Hello, garden!"
+          ],
+          "starter_code": "# Say hello to your garden\n",
+          "expected_output": "Hello, garden!",
+          "rules": {
+            "mustContain": [
+              "print("
+            ],
+            "hint": "Text goes inside quotes: print(\"...\")"
+          },
+          "reward_seeds": 15,
+          "reward_xp": 40
+        },
+        {
+          "title": "Name your water",
+          "concept": "Variables",
+          "sort_order": 2,
+          "goals": [
+            "Create a variable named water and set it to 4",
+            "Print the variable"
+          ],
+          "starter_code": "# Store a number in a variable, then print it\n",
+          "expected_output": "4",
+          "rules": {
+            "mustContain": [
+              "water",
+              "print(water)"
+            ],
+            "hint": "A variable is a name, an equals sign and a value: water = 4"
+          },
+          "reward_seeds": 15,
+          "reward_xp": 40
+        },
+        {
+          "title": "Count the seeds",
+          "concept": "Math",
+          "sort_order": 3,
+          "goals": [
+            "Multiply seeds by pots using *",
+            "Print the total"
+          ],
+          "starter_code": "seeds = 6\npots = 3\n# Print how many seeds you need in total\n",
+          "expected_output": "18",
+          "rules": {
+            "mustContain": [
+              "*",
+              "print("
+            ],
+            "hint": "You can put a calculation inside print: print(a * b)"
+          },
+          "reward_seeds": 15,
+          "reward_xp": 40
+        },
+        {
+          "title": "Sunny or not",
+          "concept": "Decisions",
+          "sort_order": 4,
+          "goals": [
+            "Write an if that checks sun > 5",
+            "Add an else for the other case",
+            "Print Grow! when the sun is bright"
+          ],
+          "starter_code": "sun = 8\n# If sun is above 5, print Grow! Otherwise print Wait\n",
+          "expected_output": "Grow!",
+          "rules": {
+            "mustContain": [
+              "if",
+              "else",
+              "print("
+            ],
+            "hint": "End the if line with a colon and indent the next line by 4 spaces."
+          },
+          "reward_seeds": 15,
+          "reward_xp": 40
+        },
+        {
+          "title": "Water every plant",
+          "concept": "Loops",
+          "sort_order": 5,
+          "goals": [
+            "Use a for loop with range(3)",
+            "Print Water plant 1, Water plant 2 and Water plant 3"
+          ],
+          "starter_code": "# Water 3 plants, one line each\n",
+          "expected_output": "Water plant 1\nWater plant 2\nWater plant 3",
+          "rules": {
+            "mustContain": [
+              "for",
+              "range"
+            ],
+            "hint": "range(3) counts 0, 1, 2. Print i + 1 to start at 1."
+          },
+          "reward_seeds": 15,
+          "reward_xp": 40
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign up | Python Garden</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&amp;family=Pixelify+Sans:wght@500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/pixel.css">
+  <link rel="stylesheet" href="/css/landing.css">
+</head>
+<body data-role="guest" class="auth">
+  <main class="px-card auth__card">
+    <div class="auth__brand"><span class="spr spr--turtle" data-sprite="turtle"></span><h1>Join the garden</h1></div>
+    <form id="auth-form" data-mode="register" novalidate>
+      <div class="px-field"><label class="px-label" for="username">Username</label><input class="px-input" id="username" name="username" autocomplete="username" required aria-describedby="u-help"><p class="px-help" id="u-help">3 to 20 letters, numbers or underscores. Saved in lowercase.</p></div>
+      <div class="px-field"><label class="px-label" for="email">Email</label><input class="px-input" id="email" name="email" type="email" autocomplete="email" required></div>
+      <div class="px-field"><label class="px-label" for="password">Password</label><input class="px-input" id="password" name="password" type="password" autocomplete="new-password" minlength="8" required aria-describedby="p-help"><p class="px-help" id="p-help">At least 8 characters.</p></div>
+      <div class="px-field"><label class="px-label" for="confirm">Confirm password</label><input class="px-input" id="confirm" name="confirm" type="password" autocomplete="new-password" required></div>
+      <p id="form-error" class="px-error" role="alert"></p>
+      <button class="px-btn px-btn--sun" type="submit">Create account</button>
+    </form>
+    <p class="auth__alt">Already have an account? <a href="/login.html">Log in</a></p>
+  </main>
+  <script src="/js/api.js"></script>
+  <script src="/js/guard.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

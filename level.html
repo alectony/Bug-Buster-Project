@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level | Python Garden</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&amp;family=Pixelify+Sans:wght@500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/pixel.css">
+  <link rel="stylesheet" href="/css/game.css">
+</head>
+<body data-role="user">
+  <div id="app-nav"></div>
+  <main class="container page-main">
+    <p id="level-loading" class="muted">Loading level...</p>
+    <div id="level-body" class="level is-hidden">
+      <section class="level-side" aria-label="Quest">
+        <div>
+          <p class="muted" id="chapter-name"></p>
+          <h1 id="lesson-title"></h1>
+        </div>
+        <div class="px-card">
+          <h2>Quest goals</h2>
+          <p id="concept"></p>
+          <ul class="goal-list" id="goals"></ul>
+        </div>
+        <div class="px-card scene" id="scene" aria-label="Your garden scene">
+          <div class="scene__sky" aria-hidden="true">
+            <span class="spr spr--lg plant" data-sprite="sunflower"></span>
+            <span class="spr spr--lg plant" data-sprite="tulip"></span>
+            <span class="spr spr--lg plant" data-sprite="mushroom"></span>
+            <span class="spr spr--turtle spr--lg" data-sprite="turtle"></span>
+          </div>
+          <div class="scene__ground"></div>
+          <span class="spark spark--1" aria-hidden="true"></span>
+          <span class="spark spark--2" aria-hidden="true"></span>
+          <span class="spark spark--3" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <section class="level-work" aria-label="Code editor">
+        <div class="editor">
+          <pre id="gutter" class="editor-gutter" aria-hidden="true"></pre>
+          <textarea id="code" class="editor-text" wrap="off" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Python code" aria-describedby="editor-help"></textarea>
+        </div>
+        <p id="editor-help" class="px-help">Tab adds spaces. Press Esc, then Tab, to leave the editor. Ctrl+Enter runs your code.</p>
+        <div class="row">
+          <button id="btn-run" class="px-btn px-btn--sun" type="button">Run</button>
+          <button id="btn-check" class="px-btn px-btn--primary" type="button">Check</button>
+          <button id="btn-hint" class="px-btn px-btn--ghost" type="button">Hint</button>
+          <button id="btn-reset" class="px-btn px-btn--ghost" type="button">Reset</button>
+        </div>
+        <p id="hint" class="hint-box is-hidden" role="status"></p>
+        <div>
+          <h2>Console</h2>
+          <pre id="console" class="console" aria-live="polite">Press Run to see what your code prints.</pre>
+        </div>
+        <section id="win" class="px-card px-card--sun win is-hidden" aria-labelledby="win-title">
+          <h2 id="win-title" tabindex="-1"></h2>
+          <p id="win-text"></p>
+          <div class="reward-row" id="win-rewards"></div>
+          <div class="row">
+            <a id="next-link" class="px-btn px-btn--primary" href="/adventure.html">Next level</a>
+            <a class="px-btn px-btn--ghost" href="/garden.html">Visit my garden</a>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+  <script src="/js/api.js"></script>
+  <script src="/js/guard.js"></script>
+  <script src="/js/runner.js"></script>
+  <script src="/js/editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Levels | Python Garden admin</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&amp;family=Pixelify+Sans:wght@500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/pixel.css">
+  <link rel="stylesheet" href="/css/game.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body data-role="admin" data-page="lessons" class="page-admin">
+  <div id="app-nav"></div>
+  <main class="container page-main">
+    <div class="page-head"><h1>Levels</h1><p class="muted">Create and edit levels. Draft chapters are hidden from learners.</p></div>
+    <div class="split split--lessons">
+      <div id="chapter-list"></div>
+      <div class="stack">
+        <section class="px-card" aria-labelledby="form-title">
+          <div class="row row--between"><h2 id="form-title">New level</h2><button id="btn-new" class="px-btn px-btn--ghost px-btn--small" type="button">Start a new level</button></div>
+          <form id="lesson-form">
+            <input type="hidden" id="f-id">
+            <div class="form-grid">
+              <div class="px-field"><label class="px-label" for="f-chapter">Chapter</label><select class="px-select" id="f-chapter" required></select></div>
+              <div class="px-field"><label class="px-label" for="f-order">Order</label><input class="px-input" id="f-order" type="number" min="0" max="9999" required></div>
+            </div>
+            <div class="px-field"><label class="px-label" for="f-title">Title</label><input class="px-input" id="f-title" maxlength="120" required></div>
+            <div class="px-field"><label class="px-label" for="f-concept">Concept</label><input class="px-input" id="f-concept" maxlength="80"><p class="px-help">Used for the mastery bars, for example "Loops".</p></div>
+            <div class="px-field"><label class="px-label" for="f-goals">Quest goals</label><textarea class="px-textarea" id="f-goals"></textarea><p class="px-help">One goal per line.</p></div>
+            <div class="px-field"><label class="px-label" for="f-starter">Starter code</label><textarea class="px-textarea" id="f-starter" spellcheck="false"></textarea></div>
+            <div class="px-field"><label class="px-label" for="f-expected">Expected console output</label><textarea class="px-textarea" id="f-expected" spellcheck="false"></textarea><p class="px-help">Leave empty to skip the output check.</p></div>
+            <div class="px-field"><label class="px-label" for="f-must">Code must contain</label><textarea class="px-textarea" id="f-must" spellcheck="false"></textarea><p class="px-help">One snippet per line, for example: for</p></div>
+            <div class="px-field"><label class="px-label" for="f-hint">Hint</label><input class="px-input" id="f-hint" maxlength="300"></div>
+            <div class="form-grid">
+              <div class="px-field"><label class="px-label" for="f-seeds">Reward seeds</label><input class="px-input" id="f-seeds" type="number" min="0" max="1000" required></div>
+              <div class="px-field"><label class="px-label" for="f-xp">Reward XP</label><input class="px-input" id="f-xp" type="number" min="0" max="1000" required></div>
+            </div>
+            <button class="px-btn px-btn--primary" type="submit">Save level</button>
+          </form>
+        </section>
+        <section class="px-card" aria-labelledby="chap-h">
+          <h2 id="chap-h">New chapter</h2>
+          <form id="chapter-form">
+            <div class="px-field"><label class="px-label" for="c-title">Title</label><input class="px-input" id="c-title" maxlength="80" required></div>
+            <div class="px-field"><label class="px-label" for="c-slug">Slug</label><input class="px-input" id="c-slug" maxlength="40" required><p class="px-help">Lowercase letters, numbers and dashes.</p></div>
+            <div class="px-field"><label class="px-label" for="c-blurb">Short description</label><input class="px-input" id="c-blurb" maxlength="300"></div>
+            <button class="px-btn px-btn--primary" type="submit">Add chapter</button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+  <script src="/js/api.js"></script>
+  <script src="/js/guard.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

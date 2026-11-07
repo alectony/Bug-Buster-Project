@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adventure | Python Garden</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&amp;family=Pixelify+Sans:wght@500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/pixel.css">
+  <link rel="stylesheet" href="/css/game.css">
+</head>
+<body data-role="user">
+  <div id="app-nav"></div>
+  <main class="container page-main">
+    <div class="page-head"><h1>Adventure map</h1><p class="muted">Follow the trail. Each glowing level is ready to play.</p></div>
+    <div class="adventure">
+      <aside class="sprout-col" aria-label="Sprout the turtle">
+        <div class="px-card px-card--sun">
+          <div class="sprout">
+            <span class="spr spr--turtle spr--lg" data-sprite="turtle"></span>
+            <div class="bubble"><p id="sprout-say">Loading your trail...</p></div>
+          </div>
+          <a id="sprout-go" class="px-btn px-btn--sun is-hidden" href="/adventure.html">Start next level</a>
+        </div>
+      </aside>
+      <div id="chapters" class="stack"></div>
+    </div>
+  </main>
+  <script src="/js/api.js"></script>
+  <script src="/js/guard.js"></script>
+  <script src="/js/map.js"></script>
+</body>
+</html>

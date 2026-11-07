@@ -1,0 +1,106 @@
+.page-head { margin-bottom: 24px; }
+.page-head p { max-width: 60ch; }
+
+/* Adventure map */
+.adventure { display: grid; gap: 24px; }
+.sprout { display: flex; gap: 12px; align-items: flex-start; }
+.bubble { position: relative; background: #fff; border: var(--line); border-radius: var(--radius); padding: 12px 14px; flex: 1; }
+.map-card { padding: 0; overflow: hidden; background: #DDF2FB; }
+.map-card__head { padding: 16px 20px; background: var(--paper); border-bottom: var(--line); }
+.map-card__head h2 { margin: 0 0 4px; }
+.map-card__head p { margin: 0; }
+.map-svg { display: block; width: 100%; height: auto; }
+.map-path { fill: none; stroke: var(--soil); stroke-width: 5; stroke-dasharray: 4 12; stroke-linecap: square; }
+.px-node circle { stroke: var(--outline); stroke-width: 4; }
+.px-node .node-num { font-family: var(--font-head); font-size: 26px; font-weight: 700; text-anchor: middle; dominant-baseline: central; fill: var(--outline); }
+.px-node .node-label { font-family: var(--font-body); font-weight: 800; font-size: 17px; text-anchor: middle; fill: var(--outline); paint-order: stroke; stroke: #DDF2FB; stroke-width: 5px; }
+.px-node.is-done circle { fill: var(--grass); }
+.px-node.is-open circle { fill: var(--sun); }
+.px-node.is-locked circle { fill: #CFC6B0; }
+.px-node.is-locked .node-num { fill: #6a5d54; }
+.px-node a { cursor: pointer; }
+.px-node a:hover circle { stroke-width: 6; }
+.px-node a:focus-visible { outline: none; box-shadow: none; }
+.px-node a:focus-visible circle { stroke: var(--teal); stroke-width: 8; }
+.px-node.is-open circle { animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 50% { transform: scale(1.06); } }
+.px-node circle { transform-box: fill-box; transform-origin: center; }
+@media (min-width: 900px) { .adventure { grid-template-columns: 300px 1fr; align-items: start; } .sprout-col { position: sticky; top: 16px; } }
+
+/* Level */
+.level { display: grid; gap: 24px; }
+.level-side, .level-work { display: grid; gap: 20px; align-content: start; }
+.goal-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.goal-list li { display: flex; gap: 10px; align-items: flex-start; }
+.goal-list li::before { content: ''; flex: none; width: 22px; height: 22px; margin-top: 2px; background: #fff; border: var(--line); border-radius: 4px; }
+.goal-list li.is-done::before { background: var(--grass) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath d='M1 4l2 2 4-4' fill='none' stroke='%232B1B14' stroke-width='1.4'/%3E%3C/svg%3E") center / 100% no-repeat; }
+.scene { padding: 0; overflow: hidden; background: var(--sky); position: relative; }
+.scene__sky { min-height: 150px; display: flex; align-items: flex-end; justify-content: space-around; padding: 12px 12px 0; }
+.scene__ground { background: var(--grass); border-top: var(--line); min-height: 28px; }
+.scene .plant { opacity: .55; filter: grayscale(.8); transition: opacity .4s, filter .4s; }
+.scene.is-bloom .plant { opacity: 1; filter: none; animation: pop .6s ease-out both; }
+.scene.is-bloom .plant:nth-child(2) { animation-delay: .12s; }
+.scene.is-bloom .plant:nth-child(3) { animation-delay: .24s; }
+@keyframes pop { 0% { transform: translateY(14px) scale(.7); } 60% { transform: translateY(-8px) scale(1.1); } 100% { transform: none; } }
+.spark { position: absolute; width: 10px; height: 10px; background: var(--sun); border: 2px solid var(--outline); opacity: 0; }
+.scene.is-bloom .spark { animation: spark 1.1s ease-out both; }
+.spark--1 { left: 18%; top: 40%; } .spark--2 { left: 48%; top: 22%; animation-delay: .15s !important; } .spark--3 { left: 78%; top: 44%; animation-delay: .3s !important; }
+@keyframes spark { 0% { opacity: 0; transform: scale(.2) rotate(0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(-34px) scale(1.2) rotate(90deg); } }
+
+.editor { display: grid; grid-template-columns: 44px 1fr; background: var(--teal); border: var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+.editor-gutter, .editor-text { margin: 0; font-family: var(--font-code); font-size: 15px; line-height: 24px; padding: 12px; }
+.editor-gutter { color: #8FBFB0; text-align: right; background: #0B2E36; overflow: hidden; user-select: none; padding-inline: 6px; }
+.editor-gutter .ln { display: block; }
+.editor-gutter .ln.is-error { color: var(--teal); background: var(--sun); font-weight: 800; }
+.editor-text { width: 100%; min-height: 288px; resize: vertical; border: 0; background: transparent; color: #F3FBE9; white-space: pre; overflow: auto; tab-size: 4; caret-color: var(--sun); }
+.editor-text:focus-visible { outline: 3px solid var(--sun); outline-offset: -3px; box-shadow: none; }
+.console { margin: 0; min-height: 120px; padding: 12px; background: #0A262C; color: #CFEFC4; border: var(--line); border-radius: var(--radius); font-family: var(--font-code); font-size: 15px; white-space: pre-wrap; word-break: break-word; }
+.console .is-err { color: #FFC2B8; }
+.console .is-ok { color: var(--sun); }
+.hint-box { background: #FDE9C2; border: var(--line); border-radius: var(--radius); padding: 10px 14px; margin: 0; }
+.win { text-align: center; }
+.win h2 { margin-bottom: 8px; }
+.reward-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+@media (min-width: 900px) { .level { grid-template-columns: 5fr 7fr; align-items: start; } }
+
+/* Garden */
+.garden { display: grid; gap: 24px; }
+.plots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; background: var(--sky); border: var(--line); border-radius: var(--radius); padding: 14px; }
+.plot { aspect-ratio: 1; display: grid; place-items: center; background: var(--soil); border: var(--line); border-radius: var(--radius); cursor: pointer; padding: 4px; min-height: 64px; }
+.plot[disabled] { cursor: default; }
+.plot.is-empty:hover, .plot.is-empty:focus-visible { background: #a45a45; }
+.plot .spr { width: 100%; height: 100%; max-width: 72px; max-height: 72px; }
+.plot .plot-plus { font-family: var(--font-head); font-size: 1.6rem; color: var(--parchment); }
+.shop { display: grid; gap: 12px; align-content: start; }
+.shop-item { display: grid; grid-template-columns: 48px 1fr auto; gap: 12px; align-items: center; padding: 10px 12px; }
+.shop-item h3 { margin: 0; font-size: 1.05rem; }
+.shop-item p { margin: 0; font-size: .9rem; }
+.shop-item.is-selected { background: #FDE9C2; }
+.shop-item.is-poor .spr { opacity: .5; }
+@media (min-width: 900px) { .garden { grid-template-columns: 1fr 380px; align-items: start; } }
+
+/* Toolbox */
+.topic-list { display: grid; gap: 16px; }
+.topic.is-locked { background: #EFE6CF; box-shadow: 2px 2px 0 var(--outline); }
+.topic pre { margin: 12px 0 0; padding: 12px; background: var(--teal); color: #EAF6E6; border: var(--line); border-radius: var(--radius); font-family: var(--font-code); font-size: 15px; overflow-x: auto; }
+.topic h2 { font-size: 1.3rem; margin-bottom: 4px; }
+
+/* Progress */
+.rank-card { display: grid; gap: 16px; }
+.stat-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.stat { text-align: center; }
+.stat strong { display: block; font-family: var(--font-head); font-size: 2rem; line-height: 1.1; }
+.mastery { display: grid; gap: 14px; }
+.mastery label, .mastery .m-label { display: flex; justify-content: space-between; font-weight: 800; margin-bottom: 4px; }
+.milestones { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.milestone { display: flex; gap: 12px; align-items: center; padding: 12px; }
+.milestone.is-locked { background: #EFE6CF; }
+.milestone.is-locked .spr { opacity: .35; filter: grayscale(1); }
+.milestone h3 { margin: 0; font-size: 1.05rem; }
+.milestone p { margin: 0; font-size: .92rem; }
+
+/* Map node marks */
+.node-mark { fill: none; stroke: var(--outline); stroke-width: 6; stroke-linecap: square; stroke-linejoin: miter; }
+.node-lock { fill: var(--outline); }
+.map-wrap { max-width: 480px; margin-inline: auto; padding: 8px 12px 20px; }
+.win .row { justify-content: center; }

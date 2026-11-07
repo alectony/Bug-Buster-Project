@@ -1,0 +1,40 @@
+{
+  "topics": [
+    {
+      "title": "Comments",
+      "unlock_lesson_title": null,
+      "summary": "Text after # is ignored by Python. Use it to leave notes for yourself.",
+      "example_code": "# This line is a note\nprint(\"Notes are free\")  # so is this part"
+    },
+    {
+      "title": "print()",
+      "unlock_lesson_title": "Say hello",
+      "summary": "print() shows text or values in the console. Text goes inside quotes. Several values can be separated with commas.",
+      "example_code": "print(\"Hello, garden!\")\nprint(\"Plants:\", 3)"
+    },
+    {
+      "title": "Variables",
+      "unlock_lesson_title": "Name your water",
+      "summary": "A variable stores a value under a name. Use = to store it, then use the name later.",
+      "example_code": "water = 4\nname = \"Sprout\"\nprint(name, water)"
+    },
+    {
+      "title": "Math operators",
+      "unlock_lesson_title": "Count the seeds",
+      "summary": "Use + - * / for arithmetic. // divides and drops the decimals, % gives the remainder, ** is a power.",
+      "example_code": "print(6 * 3)\nprint(7 // 2)\nprint(7 % 3)\nprint(2 ** 3)"
+    },
+    {
+      "title": "if and else",
+      "unlock_lesson_title": "Sunny or not",
+      "summary": "if runs code only when a condition is true. else runs when it is not. Indent the code inside by 4 spaces.",
+      "example_code": "sun = 8\nif sun > 5:\n    print(\"Grow!\")\nelse:\n    print(\"Wait\")"
+    },
+    {
+      "title": "for loops and range()",
+      "unlock_lesson_title": "Water every plant",
+      "summary": "A for loop repeats code. range(3) gives 0, 1 and 2, so the loop body runs three times.",
+      "example_code": "for i in range(3):\n    print(\"Water plant\", i + 1)"
+    }
+  ]
+}

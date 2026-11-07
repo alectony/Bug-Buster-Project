@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Python Garden admin</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&amp;family=Pixelify+Sans:wght@500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/pixel.css">
+  <link rel="stylesheet" href="/css/game.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body data-role="admin" data-page="dashboard" class="page-admin">
+  <div id="app-nav"></div>
+  <main class="container page-main">
+    <div class="page-head"><h1>Dashboard</h1></div>
+    <div class="admin-grid">
+      <section class="kpis" id="kpis" aria-label="Totals"></section>
+      <section class="px-card" aria-labelledby="pl-h">
+        <h2 id="pl-h">Completions per level</h2>
+        <div id="per-level" class="bar-list"></div>
+      </section>
+    </div>
+  </main>
+  <script src="/js/api.js"></script>
+  <script src="/js/guard.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>
