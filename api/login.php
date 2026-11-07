@@ -16,3 +16,4 @@ if (!empty($rows[0]['is_suspended'])) fail('This account is suspended', 403);
 
 session_set($rows[0]['id'], $rows[0]['role']);
 json_out(['ok' => true, 'role' => $rows[0]['role']]);
+?>

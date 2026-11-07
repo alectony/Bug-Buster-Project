@@ -203,3 +203,4 @@ function int_in(array $src, string $key, int $min, int $max, int $default): int 
     if ($v === false || $v < $min || $v > $max) fail("Invalid $key", 422);
     return $v;
 }
+?>

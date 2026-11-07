@@ -25,3 +25,4 @@ json_out([
     'users' => count($profiles), 'admins' => $admins, 'suspended' => $suspended, 'new_users_7d' => $newUsers,
     'lessons' => count($lessons), 'completions' => count($done), 'per_lesson' => $rows,
 ]);
+?>

@@ -37,3 +37,4 @@ $next = null;
 foreach ($list as $l) if ($l['status'] === 'open') { $next = ['id' => (int)$l['id'], 'title' => $l['title']]; break; }
 json_out(['chapters' => $out, 'next' => $next,
     'me' => ['xp' => (int)$me['xp'], 'seeds' => (int)$me['seeds'], 'streak' => (int)$me['streak']]]);
+?>

@@ -17,3 +17,4 @@ foreach ($topics as $t) {
     $out[] = $row;
 }
 json_out(['topics' => $out]);
+?>

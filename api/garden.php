@@ -32,3 +32,4 @@ if ($code < 200 || $code >= 300) {
     fail('That plot is already planted', 409);
 }
 json_out(['ok' => true, 'seeds' => $balance - $cost, 'slot' => $slot, 'item_id' => $itemId], 201);
+?>

@@ -28,3 +28,4 @@ if ($pc < 200 || $pc >= 300) {
 
 session_set($user['id'], 'user');
 json_out(['ok' => true, 'role' => 'user'], 201);
+?>

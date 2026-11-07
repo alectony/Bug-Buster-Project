@@ -32,3 +32,4 @@ switch ($action) {
 $res = sb('PATCH', '/profiles?id=eq.' . q($id), $patch);
 if (!$res) fail('User not found', 404);
 json_out(['ok' => true, 'user' => $res[0]]);
+?>

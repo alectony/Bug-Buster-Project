@@ -78,3 +78,4 @@ if (!empty($in['id'])) {
 }
 $res = sb('POST', '/lessons', $row);
 json_out(['ok' => true, 'lesson' => $res[0] ?? null], 201);
+?>

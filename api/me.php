@@ -6,3 +6,4 @@ json_out([
     'id' => $p['id'], 'username' => $p['username'], 'role' => $p['role'],
     'xp' => (int)$p['xp'], 'seeds' => (int)$p['seeds'], 'streak' => (int)$p['streak'],
 ]);
+?>

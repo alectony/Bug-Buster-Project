@@ -71,3 +71,4 @@ sb('PATCH', "/profiles?id=eq.$uid", ['seeds' => $seeds, 'xp' => $xp, 'streak' =>
 json_out(['awarded' => true, 'seeds' => $seeds, 'xp' => $xp, 'streak' => $streak,
     'reward_seeds' => (int)$lesson['reward_seeds'], 'reward_xp' => (int)$lesson['reward_xp'],
     'next_id' => $next ? (int)$next['id'] : null]);
+?>
