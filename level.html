@@ -11,11 +11,21 @@
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/pixel.css">
   <link rel="stylesheet" href="/css/game.css">
+  <link rel="stylesheet" href="/css/reference.css">
 </head>
 <body data-role="user">
   <div id="app-nav"></div>
   <main class="container page-main">
     <p id="level-loading" class="muted">Loading level...</p>
+    <section id="quest-intro" class="quest-intro is-hidden" aria-labelledby="intro-title">
+      <aside class="quest-mascot"><a class="back-map" href="adventure.html">‹ Back to map</a><span class="spr spr--turtle spr--xl" data-sprite="turtle"></span><div class="bubble"><p id="intro-sprout-line">Let’s grow something good!</p></div></aside>
+      <div class="quest-paper">
+        <p class="chapter-kicker" id="intro-level"></p><h1 id="intro-title"></h1><p class="quest-concept" id="intro-concept"></p>
+        <div class="quest-sample"><span>STARTER CODE</span><pre id="intro-code"></pre></div>
+        <h2>YOUR GOALS</h2><ul id="intro-goals" class="goal-list"></ul>
+        <button id="btn-start-coding" class="px-btn px-btn--primary" type="button">Start coding ›</button>
+      </div>
+    </section>
     <div id="level-body" class="level is-hidden">
       <section class="level-side" aria-label="Quest">
         <div>
@@ -29,6 +39,9 @@
         </div>
         <div class="px-card scene" id="scene" aria-label="Your garden scene">
           <div class="scene__sky" aria-hidden="true">
+            <div class="scene__plot-grid">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
             <span class="spr spr--lg plant" data-sprite="sunflower"></span>
             <span class="spr spr--lg plant" data-sprite="tulip"></span>
             <span class="spr spr--lg plant" data-sprite="mushroom"></span>
@@ -63,8 +76,8 @@
           <p id="win-text"></p>
           <div class="reward-row" id="win-rewards"></div>
           <div class="row">
-            <a id="next-link" class="px-btn px-btn--primary" href="/adventure.html">Next level</a>
-            <a class="px-btn px-btn--ghost" href="/garden.html">Visit my garden</a>
+            <a id="next-link" class="px-btn px-btn--primary" href="adventure.html">Next level</a>
+            <a class="px-btn px-btn--ghost" href="garden.html">Visit my garden</a>
           </div>
         </section>
       </section>

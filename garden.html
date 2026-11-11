@@ -8,27 +8,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&amp;family=Pixelify+Sans:wght@500;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/pixel.css">
-  <link rel="stylesheet" href="/css/game.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/pixel.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/reference.css">
 </head>
 <body data-role="user">
   <div id="app-nav"></div>
   <main class="container page-main">
-    <div class="page-head"><h1>My garden</h1><p class="muted">Spend the seeds you earn. Choose an item, then tap an empty plot.</p></div>
+    <div class="page-head page-head--garden">
+      <div><p class="chapter-kicker">YOUR LITTLE CORNER</p><h1>My garden</h1><p class="muted">Plant something lovely. Your code earns the seeds to grow it.</p></div>
+      <div class="garden-seed-pocket"><span class="spr spr--sm" data-sprite="seed" aria-hidden="true"></span><strong data-bind="seeds">0</strong><span>seeds to spend</span></div>
+    </div>
     <div class="garden">
-      <section aria-label="Garden plots">
-        <p id="garden-msg" class="hint-box" role="status"></p>
-        <div id="plots" class="plots"></div>
+      <section class="garden-field" aria-label="Garden plots">
+        <div class="garden-toolbar"><div><h2>Your plots</h2><p>12 sunny spaces for seeds, flowers and little decorations.</p></div><span class="plot-count">12 PLOTS</span></div>
+        <p id="garden-msg" class="hint-box garden-msg" role="status"></p>
+        <div class="garden-landscape"><div class="garden-stone-path" aria-hidden="true"></div><div id="plots" class="plots"></div></div>
       </section>
-      <section aria-label="Seed shop">
-        <h2>Shop</h2>
+      <section class="seed-shop" aria-label="Seed shop">
+        <div class="shop-heading"><p class="chapter-kicker">PICK A PRIZE</p><h2>Garden shop</h2><p>Choose an item, then pick a free plot.</p></div>
         <div id="shop" class="shop"></div>
       </section>
     </div>
   </main>
-  <script src="/js/api.js"></script>
-  <script src="/js/guard.js"></script>
-  <script src="/js/garden.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/guard.js"></script>
+  <script src="js/garden.js"></script>
 </body>
 </html>
