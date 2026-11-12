@@ -1,0 +1,233 @@
+/* Users Page Styles — Python Garden Theme */
+.users-top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.search-field {
+  flex: 2;
+  min-width: 240px;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 140px;
+}
+
+.result-count {
+  margin-bottom: 1rem;
+}
+
+.result-count strong {
+  color: var(--accent-green);
+  font-weight: 800;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 3px solid var(--pixel-border);
+  border-radius: var(--radius-md);
+  background: var(--cream);
+  box-shadow: var(--shadow-soft);
+}
+
+.px-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Nunito', sans-serif;
+}
+
+.px-table thead {
+  background: linear-gradient(180deg, rgba(126, 191, 76, 0.2), rgba(126, 191, 76, 0.1));
+  border-bottom: 3px solid var(--pixel-border);
+}
+
+.px-table th {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+  text-align: left;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+.px-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 2px solid var(--cream-dark);
+  vertical-align: middle;
+}
+
+.px-table tbody tr {
+  transition: background 0.2s;
+}
+
+.px-table tbody tr:hover {
+  background: rgba(72, 169, 114, 0.08);
+}
+
+.px-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 2px solid transparent;
+}
+
+.badge--gardener {
+  background: rgba(72, 169, 114, 0.15);
+  color: var(--accent-green-dark);
+  border-color: var(--accent-green);
+}
+
+.badge--admin {
+  background: rgba(229, 83, 83, 0.1);
+  color: var(--accent-red);
+  border-color: var(--accent-red);
+}
+
+.status-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.status-dot::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status--active::before {
+  background: var(--accent-green);
+  box-shadow: 0 0 0 3px rgba(72, 169, 114, 0.2);
+}
+
+.status--inactive::before {
+  background: var(--accent-red);
+  box-shadow: 0 0 0 3px rgba(229, 83, 83, 0.2);
+}
+
+.progress-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-bar-inline {
+  flex: 1;
+  height: 12px;
+  background: var(--cream-dark);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--pixel-border);
+}
+
+.progress-fill-inline {
+  height: 100%;
+  background: linear-gradient(90deg, var(--grass-dark), var(--accent-green));
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.progress-pct {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.btn-icon {
+  padding: 0.35rem 0.5rem;
+  border: 2px solid var(--pixel-border);
+  border-radius: var(--radius-sm);
+  background: white;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.15s;
+}
+
+.btn-icon:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+}
+
+.btn-icon--edit {
+  border-color: var(--accent-yellow);
+  background: rgba(242, 201, 76, 0.1);
+}
+
+.btn-icon--edit:hover {
+  background: rgba(242, 201, 76, 0.25);
+}
+
+.btn-icon--view {
+  border-color: var(--accent-green);
+  background: rgba(72, 169, 114, 0.1);
+}
+
+.btn-icon--view:hover {
+  background: rgba(72, 169, 114, 0.2);
+}
+
+.empty-state td {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.empty-content {
+  color: var(--text-muted);
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .users-top-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-field, .filter-group {
+    width: 100%;
+  }
+  .px-table th, .px-table td {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}

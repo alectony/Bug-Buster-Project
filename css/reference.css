@@ -258,3 +258,262 @@ body[data-role="user"] { min-height: 100vh; background: linear-gradient(#52bddb 
   .sprout-col .px-card { flex-wrap:wrap; }
   .sprout-col #sprout-go { width:100%; }
 }
+
+/* Login and registration scene motion */
+.auth:before {
+  transform-origin: center;
+  animation: auth-star-drift 18s ease-in-out infinite alternate, auth-star-twinkle 4s ease-in-out infinite;
+}
+.auth__card { animation: auth-card-enter .75s cubic-bezier(.18,.75,.25,1) both; }
+.auth-scene { isolation: isolate; }
+.auth-scene .spr {
+  translate: 0 0;
+  animation: auth-turtle-hover 3.8s ease-in-out infinite;
+  will-change: translate;
+}
+.auth-scene .bubble {
+  animation: auth-bubble-float 4.5s ease-in-out .3s infinite;
+  transform-origin: bottom left;
+}
+.auth-stars { animation: auth-local-stars 12s ease-in-out infinite alternate; }
+.auth-stars::after {
+  content: "✦　·　✦";
+  position: absolute;
+  top: 68px;
+  left: 24px;
+  white-space: nowrap;
+  opacity: .45;
+  animation: auth-star-twinkle 3s ease-in-out infinite reverse;
+}
+.auth-form-side > * {
+  animation: auth-form-enter .55s cubic-bezier(.2,.75,.25,1) both;
+}
+.auth-form-side > :nth-child(1) { animation-delay: .18s; }
+.auth-form-side > :nth-child(2) { animation-delay: .25s; }
+.auth-form-side > :nth-child(3) { animation-delay: .32s; }
+.auth-form-side > :nth-child(4) { animation-delay: .39s; }
+.auth-form-side > :nth-child(5) { animation-delay: .46s; }
+.auth-form-side > :nth-child(6) { animation-delay: .53s; }
+.auth-form-side > :nth-child(7) { animation-delay: .6s; }
+.auth .px-input { transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.auth .px-input:focus {
+  border-color: #34a984;
+  box-shadow: 0 0 0 3px rgba(52,169,132,.16);
+  background-color: #fff;
+}
+.auth-submit { transition: transform .18s ease, box-shadow .18s ease, filter .18s ease; }
+.auth-submit:hover { transform: translateY(-3px); filter: brightness(1.06); }
+.auth-back { transition: transform .2s ease, color .2s ease; }
+.auth-back:hover { transform: translateX(-4px); color: #fff; }
+
+@keyframes auth-card-enter {
+  from { opacity: 0; transform: translateY(24px) scale(.975); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes auth-form-enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes auth-turtle-hover {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -9px; }
+}
+@keyframes auth-bubble-float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-5px) rotate(-1deg); }
+}
+@keyframes auth-star-drift {
+  from { transform: translateX(-8px); }
+  to { transform: translateX(8px); }
+}
+@keyframes auth-star-twinkle {
+  0%, 100% { opacity: .38; }
+  50% { opacity: .8; }
+}
+@keyframes auth-local-stars {
+  from { translate: 0 0; }
+  to { translate: 12px -5px; }
+}
+
+@media (max-width: 700px) {
+  .auth-scene .spr { animation-duration: 4.4s; }
+  .auth-stars::after { top: 36px; left: 18px; }
+}
+
+/* Registration layout and motion */
+.auth__card:not(:has(.auth-scene)) {
+  display: block;
+  width: min(560px, 100%);
+  padding: 38px;
+}
+.auth__card:not(:has(.auth-scene)) > .auth__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  animation: auth-form-enter .55s .12s both;
+}
+.auth__card:not(:has(.auth-scene)) .auth__brand .spr {
+  animation: auth-turtle-hover 3.8s ease-in-out infinite;
+}
+.auth__card:not(:has(.auth-scene)) > form { width: 100%; }
+.auth__card:not(:has(.auth-scene)) > form > .px-field,
+.auth__card:not(:has(.auth-scene)) > form > .px-error,
+.auth__card:not(:has(.auth-scene)) > form > .px-btn,
+.auth__card:not(:has(.auth-scene)) > .auth__alt {
+  animation: auth-form-enter .5s cubic-bezier(.2,.75,.25,1) both;
+}
+.auth__card:not(:has(.auth-scene)) > form > :nth-child(1) { animation-delay: .2s; }
+.auth__card:not(:has(.auth-scene)) > form > :nth-child(2) { animation-delay: .28s; }
+.auth__card:not(:has(.auth-scene)) > form > :nth-child(3) { animation-delay: .36s; }
+.auth__card:not(:has(.auth-scene)) > form > :nth-child(4) { animation-delay: .44s; }
+.auth__card:not(:has(.auth-scene)) > form > :nth-child(5) { animation-delay: .52s; }
+.auth__card:not(:has(.auth-scene)) > form > :nth-child(6) { animation-delay: .6s; }
+.auth__card:not(:has(.auth-scene)) > .auth__alt { animation-delay: .68s; }
+@media (max-width: 620px) {
+  .auth__card:not(:has(.auth-scene)) { padding: 26px 20px; }
+}
+
+/* Four-season weather cycle for the landing garden */
+.hero {
+  transition: background 1.6s ease;
+}
+.hero.season-spring {
+  background: linear-gradient(180deg, #75cbdc 0%, #b8e7dc 70%, #a8d99f 70%, #80c977 100%);
+}
+.hero.season-summer {
+  background: linear-gradient(180deg, #41b9df 0%, #9cdeea 70%, #a7d98d 70%, #75c45f 100%);
+}
+.hero.season-autumn {
+  background: linear-gradient(180deg, #78bfc9 0%, #f3c08a 70%, #d5a76e 70%, #b98152 100%);
+}
+.hero.season-winter {
+  background: linear-gradient(180deg, #7bb6d1 0%, #d7e9ee 70%, #d9e6d7 70%, #b9d0c8 100%);
+}
+.hero.season-spring::before { background-color: #72b879; }
+.hero.season-spring::after { background-color: #b5df9a; }
+.hero.season-summer::before { background-color: #78c66a; }
+.hero.season-summer::after { background-color: #c6e58e; }
+.hero.season-autumn::before { background-color: #b87a4b; }
+.hero.season-autumn::after { background-color: #e2b875; }
+.hero.season-winter::before { background-color: #c8d9d4; }
+.hero.season-winter::after { background-color: #eef3e9; }
+.hero:before, .hero:after { transition: background-color 1.6s ease; }
+
+.season-widget {
+  position: absolute;
+  z-index: 3;
+  top: 185px;
+  right: clamp(20px, 5vw, 76px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 215px;
+  padding: 8px 10px;
+  color: #143d44;
+  background: rgba(255, 249, 223, .94);
+  border: 2px solid #567363;
+  box-shadow: 4px 4px 0 rgba(30, 73, 64, .18);
+  animation: weather-arrive .6s .25s both;
+}
+.season-widget__icon { font-size: 1.55rem; line-height: 1; }
+.season-widget__copy { display: grid; gap: 1px; flex: 1; }
+.season-widget__copy strong { font: 700 1.05rem var(--font-head); text-transform: uppercase; }
+.season-widget__copy span { font-size: .78rem; color: #527168; }
+.season-next {
+  width: 34px;
+  height: 34px;
+  color: #143d44;
+  background: #f2bd73;
+  border: 2px solid #31564e;
+  border-radius: 5px;
+  font: 700 1.2rem var(--font-head);
+  cursor: pointer;
+  transition: transform .2s ease, background-color .2s ease;
+}
+.season-next:hover { transform: rotate(35deg) scale(1.06); background: #f7cf93; }
+.season-next:focus-visible { outline: 3px solid #143d44; outline-offset: 3px; }
+
+.season-particles { position: absolute; z-index: 0; inset: 0; overflow: hidden; pointer-events: none; }
+.season-rain, .season-sun, .season-leaves, .season-snow { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; }
+.season-rain {
+  bottom: 15%;
+  background-image: repeating-linear-gradient(105deg, transparent 0 19px, rgba(235,255,255,.62) 20px 21px, transparent 22px 37px);
+  background-size: 100px 150px;
+  animation: rain-sweep .8s linear infinite;
+}
+.season-sun {
+  inset: 92px 12% auto auto;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #ffe49a;
+  box-shadow: 0 0 0 12px rgba(255,228,154,.2), 0 0 54px 20px rgba(255,228,154,.22);
+  animation: sun-breathe 3.6s ease-in-out infinite;
+}
+.season-leaves i {
+  position: absolute;
+  top: -24px;
+  left: var(--leaf-x);
+  width: 13px;
+  height: 9px;
+  background: var(--leaf-color);
+  border: 1px solid rgba(80,48,30,.35);
+  border-radius: 80% 0 80% 0;
+  animation: leaf-fall var(--leaf-duration) linear var(--leaf-delay) infinite;
+}
+.season-leaves i:nth-child(1) { --leaf-x: 12%; --leaf-color: #d9793a; --leaf-duration: 8s; --leaf-delay: -3s; }
+.season-leaves i:nth-child(2) { --leaf-x: 29%; --leaf-color: #e6a342; --leaf-duration: 10s; --leaf-delay: -7s; }
+.season-leaves i:nth-child(3) { --leaf-x: 46%; --leaf-color: #b95f37; --leaf-duration: 9s; --leaf-delay: -4s; }
+.season-leaves i:nth-child(4) { --leaf-x: 63%; --leaf-color: #e0a13d; --leaf-duration: 11s; --leaf-delay: -9s; }
+.season-leaves i:nth-child(5) { --leaf-x: 77%; --leaf-color: #c87336; --leaf-duration: 8.5s; --leaf-delay: -1s; }
+.season-leaves i:nth-child(6) { --leaf-x: 90%; --leaf-color: #e6b34f; --leaf-duration: 10.5s; --leaf-delay: -6s; }
+.season-leaves i:nth-child(7) { --leaf-x: 36%; --leaf-color: #c56536; --leaf-duration: 12s; --leaf-delay: -8s; }
+.season-snow i {
+  position: absolute;
+  top: -20px;
+  left: var(--snow-x);
+  color: rgba(255,255,255,.9);
+  font-size: var(--snow-size);
+  animation: snow-fall var(--snow-duration) linear var(--snow-delay) infinite;
+}
+.season-snow i:nth-child(1) { --snow-x: 8%; --snow-size: 13px; --snow-duration: 11s; --snow-delay: -3s; }
+.season-snow i:nth-child(2) { --snow-x: 19%; --snow-size: 9px; --snow-duration: 13s; --snow-delay: -7s; }
+.season-snow i:nth-child(3) { --snow-x: 34%; --snow-size: 15px; --snow-duration: 12s; --snow-delay: -9s; }
+.season-snow i:nth-child(4) { --snow-x: 48%; --snow-size: 10px; --snow-duration: 14s; --snow-delay: -2s; }
+.season-snow i:nth-child(5) { --snow-x: 60%; --snow-size: 12px; --snow-duration: 10s; --snow-delay: -6s; }
+.season-snow i:nth-child(6) { --snow-x: 72%; --snow-size: 16px; --snow-duration: 13s; --snow-delay: -4s; }
+.season-snow i:nth-child(7) { --snow-x: 83%; --snow-size: 9px; --snow-duration: 11.5s; --snow-delay: -8s; }
+.season-snow i:nth-child(8) { --snow-x: 94%; --snow-size: 14px; --snow-duration: 12.5s; --snow-delay: -5s; }
+.season-snow i:nth-child(9) { --snow-x: 27%; --snow-size: 11px; --snow-duration: 15s; --snow-delay: -10s; }
+.hero.season-spring .season-rain,
+.hero.season-summer .season-sun,
+.hero.season-autumn .season-leaves,
+.hero.season-winter .season-snow { opacity: 1; }
+
+@keyframes weather-arrive {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rain-sweep { to { background-position: 25px 150px; } }
+@keyframes sun-breathe { 50% { transform: scale(1.08); box-shadow: 0 0 0 17px rgba(255,228,154,.16), 0 0 70px 26px rgba(255,228,154,.26); } }
+@keyframes leaf-fall {
+  0% { transform: translate3d(-8px, -5vh, 0) rotate(0); }
+  50% { transform: translate3d(24px, 48vh, 0) rotate(230deg); }
+  100% { transform: translate3d(-10px, 105vh, 0) rotate(500deg); }
+}
+@keyframes snow-fall {
+  0% { transform: translate3d(0, -5vh, 0) rotate(0); }
+  50% { transform: translate3d(18px, 48vh, 0) rotate(180deg); }
+  100% { transform: translate3d(-12px, 105vh, 0) rotate(360deg); }
+}
+
+@media (max-width: 859px) {
+  .season-widget { position: relative; top: auto; right: auto; margin: 12px 16px 0 auto; min-width: 190px; width: max-content; }
+  .season-widget__copy span { font-size: .72rem; }
+  .season-sun { inset: 100px 8% auto auto; width: 48px; height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .season-widget { animation: none; }
+  .season-rain, .season-sun, .season-leaves, .season-snow { animation: none; }
+}

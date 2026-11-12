@@ -24,6 +24,17 @@
     </div>
     <div class="cloud cloud--a" aria-hidden="true"></div>
     <div class="cloud cloud--b" aria-hidden="true"></div>
+    <div class="season-widget" aria-label="Seasonal garden weather">
+      <span class="season-widget__icon" id="season-icon" aria-hidden="true">🌦️</span>
+      <span class="season-widget__copy"><strong id="season-name">Spring</strong><span id="season-weather">Light spring rain</span></span>
+      <button class="season-next" id="season-next" type="button" aria-label="Show next season">↻</button>
+    </div>
+    <div class="season-particles" aria-hidden="true">
+      <div class="season-rain"></div>
+      <div class="season-sun"></div>
+      <div class="season-leaves"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="season-snow"><i>✦</i><i>✦</i><i>✦</i><i>✦</i><i>✦</i><i>✦</i><i>✦</i><i>✦</i><i>✦</i></div>
+    </div>
     <div class="container hero__inner">
       <div class="hero__copy">
         <p class="hero__eyebrow">LEARN · CODE · GROW</p>
@@ -79,5 +90,6 @@
   </main>
   <footer class="container foot muted">Python Garden</footer>
   <script src="js/api.js"></script>
+  <script src="js/seasons.js"></script>
 </body>
 </html>

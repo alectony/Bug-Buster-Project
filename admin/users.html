@@ -3,35 +3,99 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Users | Python Garden admin</title>
+  <title>Users | Python Garden Admin</title>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&amp;family=Pixelify+Sans:wght@500;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/pixel.css">
-  <link rel="stylesheet" href="/css/game.css">
-  <link rel="stylesheet" href="/css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <!-- CSS — lahat nasa css/ folder -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/pixel.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/users.css">
 </head>
 <body data-role="admin" data-page="users" class="page-admin">
-  <div id="app-nav"></div>
+  <div id="app-nav">
+    <nav class="admin-nav">
+      <div class="nav-brand">
+        <span class="pixel-icon">🌱</span>
+        <span class="brand-text">Python Garden</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="users.html" class="active">Users</a></li>
+        <li><a href="lessons.html">Levels</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Settings</a></li>
+        <li class="nav-logout"><a href="#">Log Out</a></li>
+      </ul>
+    </nav>
+  </div>
+
   <main class="container page-main">
-    <div class="page-head"><h1>Users</h1></div>
-    <div class="px-field">
-      <label class="px-label" for="user-search">Find a username</label>
-      <input class="px-input" id="user-search" type="search" autocomplete="off">
+    <div class="page-head">
+      <h1>👥 Gardeners</h1>
+      <p class="muted">Manage all accounts, track progress, and update roles.</p>
     </div>
-    <p id="user-count" class="muted" role="status"></p>
+
+    <!-- Search & Filters -->
+    <div class="users-top-bar">
+      <div class="px-field search-field">
+        <label class="px-label" for="user-search">🔍 Find Gardener</label>
+        <input class="px-input" id="user-search" type="search" autocomplete="off" placeholder="Type username...">
+      </div>
+      <div class="filter-group">
+        <label class="px-label">Filter by Role</label>
+        <select class="px-select" id="role-filter">
+          <option value="all">All Roles</option>
+          <option value="gardener">Gardeners</option>
+          <option value="admin">Admins</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="px-label">Status</label>
+        <select class="px-select" id="status-filter">
+          <option value="all">All Status</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </div>
+    </div>
+
+    <p id="user-count" class="muted result-count" role="status">Showing <strong>0</strong> of <strong>0</strong> gardeners</p>
+
+    <!-- Users Table -->
     <div class="table-wrap">
       <table class="px-table">
-        <caption class="sr-only">All users</caption>
-        <thead><tr><th scope="col">Username</th><th scope="col">Role</th><th scope="col">Progress</th><th scope="col">Status</th><th scope="col">Joined</th><th scope="col">Actions</th></tr></thead>
-        <tbody id="user-rows"></tbody>
+        <caption class="sr-only">Registered Python Garden users</caption>
+        <thead>
+          <tr>
+            <th scope="col">🌿 Username</th>
+            <th scope="col">Role</th>
+            <th scope="col">Progress</th>
+            <th scope="col">Status</th>
+            <th scope="col">Joined</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="user-rows">
+          <tr class="empty-state">
+            <td colspan="6" class="empty-cell">
+              <div class="empty-content">
+                <span class="empty-icon">🌱</span>
+                <p>No gardeners found yet. New users will appear here.</p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </main>
-  <script src="/js/api.js"></script>
-  <script src="/js/guard.js"></script>
-  <script src="/js/admin.js"></script>
+
+  <!-- JS — lahat nasa js/ folder -->
+  <script src="js/api.js"></script>
+  <script src="js/guard.js"></script>
+  <script src="js/users.js"></script>
 </body>
 </html>

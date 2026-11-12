@@ -3,59 +3,160 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Levels | Python Garden admin</title>
+  <title>Levels | Python Garden Admin</title>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&amp;family=Pixelify+Sans:wght@500;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/pixel.css">
-  <link rel="stylesheet" href="/css/game.css">
-  <link rel="stylesheet" href="/css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/pixel.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/lessons.css">
 </head>
 <body data-role="admin" data-page="lessons" class="page-admin">
-  <div id="app-nav"></div>
+  <div id="app-nav">
+    <nav class="admin-nav">
+      <div class="nav-brand">
+        <span class="pixel-icon">🌱</span>
+        <span class="brand-text">Python Garden</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="lessons.html" class="active">Levels</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Settings</a></li>
+        <li class="nav-logout"><a href="#">Log Out</a></li>
+      </ul>
+    </nav>
+  </div>
+
   <main class="container page-main">
-    <div class="page-head"><h1>Levels</h1><p class="muted">Create and edit levels. Draft chapters are hidden from learners.</p></div>
+    <div class="page-head">
+      <h1>📖 Levels & Chapters</h1>
+      <p class="muted">Build your garden lessons — organize chapters, create quests, and watch them grow.</p>
+    </div>
+
     <div class="split split--lessons">
-      <div id="chapter-list"></div>
+      <!-- Sidebar: Chapter & Level List -->
+      <aside id="chapter-list">
+        <h3>🌿 Your Garden</h3>
+        <p class="muted empty-hint">No chapters yet. Start your first chapter below!</p>
+        <!-- JS will populate here -->
+      </aside>
+
+      <!-- Main Content: Forms -->
       <div class="stack">
+        <!-- Level Form -->
         <section class="px-card" aria-labelledby="form-title">
-          <div class="row row--between"><h2 id="form-title">New level</h2><button id="btn-new" class="px-btn px-btn--ghost px-btn--small" type="button">Start a new level</button></div>
+          <div class="row row--between">
+            <h2 id="form-title">🌻 New Quest Level</h2>
+            <button id="btn-new" class="px-btn px-btn--ghost px-btn--small" type="button">+ Fresh Start</button>
+          </div>
+
           <form id="lesson-form">
             <input type="hidden" id="f-id">
+
             <div class="form-grid">
-              <div class="px-field"><label class="px-label" for="f-chapter">Chapter</label><select class="px-select" id="f-chapter" required></select></div>
-              <div class="px-field"><label class="px-label" for="f-order">Order</label><input class="px-input" id="f-order" type="number" min="0" max="9999" required></div>
+              <div class="px-field">
+                <label class="px-label" for="f-chapter">🌿 Chapter</label>
+                <select class="px-select" id="f-chapter" required>
+                  <option value="">— Pick a chapter —</option>
+                </select>
+              </div>
+              <div class="px-field">
+                <label class="px-label" for="f-order">🔢 Display Order</label>
+                <input class="px-input" id="f-order" type="number" min="1" max="9999" value="1" required>
+              </div>
             </div>
-            <div class="px-field"><label class="px-label" for="f-title">Title</label><input class="px-input" id="f-title" maxlength="120" required></div>
-            <div class="px-field"><label class="px-label" for="f-concept">Concept</label><input class="px-input" id="f-concept" maxlength="80"><p class="px-help">Used for the mastery bars, for example "Loops".</p></div>
-            <div class="px-field"><label class="px-label" for="f-goals">Quest goals</label><textarea class="px-textarea" id="f-goals"></textarea><p class="px-help">One goal per line.</p></div>
-            <div class="px-field"><label class="px-label" for="f-starter">Starter code</label><textarea class="px-textarea" id="f-starter" spellcheck="false"></textarea></div>
-            <div class="px-field"><label class="px-label" for="f-expected">Expected console output</label><textarea class="px-textarea" id="f-expected" spellcheck="false"></textarea><p class="px-help">Leave empty to skip the output check.</p></div>
-            <div class="px-field"><label class="px-label" for="f-must">Code must contain</label><textarea class="px-textarea" id="f-must" spellcheck="false"></textarea><p class="px-help">One snippet per line, for example: for</p></div>
-            <div class="px-field"><label class="px-label" for="f-hint">Hint</label><input class="px-input" id="f-hint" maxlength="300"></div>
+
+            <div class="px-field">
+              <label class="px-label" for="f-title">📝 Level Title</label>
+              <input class="px-input" id="f-title" maxlength="120" placeholder="e.g., Level 1 — Say Hello" required>
+            </div>
+
+            <div class="px-field">
+              <label class="px-label" for="f-concept">🧠 Core Concept</label>
+              <input class="px-input" id="f-concept" maxlength="80" placeholder="e.g., Variables, Loops, If-Else">
+              <p class="px-help">Shown on mastery progress bars.</p>
+            </div>
+
+            <div class="px-field">
+              <label class="px-label" for="f-goals">🎯 Quest Goals</label>
+              <textarea class="px-textarea" id="f-goals" placeholder="Print your greeting&#10;Store your name in a variable&#10;Display a friendly message"></textarea>
+              <p class="px-help">One goal per line — shown to learners.</p>
+            </div>
+
+            <div class="px-field">
+              <label class="px-label" for="f-starter">💻 Starter Code</label>
+              <textarea class="px-textarea" id="f-starter" spellcheck="false" placeholder="# Write your first Python code here&#10;"></textarea>
+              <p class="px-help">Pre-filled code in the editor.</p>
+            </div>
+
+            <div class="px-field">
+              <label class="px-label" for="f-expected">📤 Expected Output</label>
+              <textarea class="px-textarea" id="f-expected" spellcheck="false" placeholder="Hello, Python Garden!"></textarea>
+              <p class="px-help">Leave blank to skip output checking.</p>
+            </div>
+
+            <div class="px-field">
+              <label class="px-label" for="f-must">🔍 Required Code</label>
+              <textarea class="px-textarea" id="f-must" spellcheck="false" placeholder="print&#10;="></textarea>
+              <p class="px-help">Keywords learners must use — one per line.</p>
+            </div>
+
+            <div class="px-field">
+              <label class="px-label" for="f-hint">💡 Gentle Hint</label>
+              <input class="px-input" id="f-hint" maxlength="300" placeholder="Remember: print() shows text on the screen.">
+            </div>
+
             <div class="form-grid">
-              <div class="px-field"><label class="px-label" for="f-seeds">Reward seeds</label><input class="px-input" id="f-seeds" type="number" min="0" max="1000" required></div>
-              <div class="px-field"><label class="px-label" for="f-xp">Reward XP</label><input class="px-input" id="f-xp" type="number" min="0" max="1000" required></div>
+              <div class="px-field">
+                <label class="px-label" for="f-seeds">🌾 Reward Seeds</label>
+                <input class="px-input" id="f-seeds" type="number" min="0" max="1000" value="10" required>
+              </div>
+              <div class="px-field">
+                <label class="px-label" for="f-xp">⭐ Reward XP</label>
+                <input class="px-input" id="f-xp" type="number" min="0" max="1000" value="25" required>
+              </div>
             </div>
-            <button class="px-btn px-btn--primary" type="submit">Save level</button>
+
+            <button class="px-btn px-btn--primary" type="submit">💾 Save Level</button>
           </form>
         </section>
+
+        <!-- Chapter Form -->
         <section class="px-card" aria-labelledby="chap-h">
-          <h2 id="chap-h">New chapter</h2>
+          <h2 id="chap-h">📚 New Chapter</h2>
           <form id="chapter-form">
-            <div class="px-field"><label class="px-label" for="c-title">Title</label><input class="px-input" id="c-title" maxlength="80" required></div>
-            <div class="px-field"><label class="px-label" for="c-slug">Slug</label><input class="px-input" id="c-slug" maxlength="40" required><p class="px-help">Lowercase letters, numbers and dashes.</p></div>
-            <div class="px-field"><label class="px-label" for="c-blurb">Short description</label><input class="px-input" id="c-blurb" maxlength="300"></div>
-            <button class="px-btn px-btn--primary" type="submit">Add chapter</button>
+            <div class="px-field">
+              <label class="px-label" for="c-title">Chapter Name</label>
+              <input class="px-input" id="c-title" maxlength="80" placeholder="e.g., Chapter 1 — The Seedling Trail" required>
+            </div>
+            <div class="form-grid">
+              <div class="px-field">
+                <label class="px-label" for="c-slug">URL Slug</label>
+                <input class="px-input" id="c-slug" maxlength="40" placeholder="seedling-trail" required>
+              </div>
+              <div class="px-field">
+                <label class="px-label" for="c-order">Order</label>
+                <input class="px-input" id="c-order" type="number" min="1" value="1" required>
+              </div>
+            </div>
+            <div class="px-field">
+              <label class="px-label" for="c-blurb">Short Description</label>
+              <input class="px-input" id="c-blurb" maxlength="300" placeholder="Plant your first seeds and learn how to speak to your computer.">
+            </div>
+            <button class="px-btn px-btn--primary" type="submit">🌱 Plant Chapter</button>
           </form>
         </section>
       </div>
     </div>
   </main>
-  <script src="/js/api.js"></script>
-  <script src="/js/guard.js"></script>
-  <script src="/js/admin.js"></script>
+
+  <script src="js/api.js"></script>
+  <script src="js/guard.js"></script>
+  <script src="js/lessons.js"></script>
 </body>
 </html>
